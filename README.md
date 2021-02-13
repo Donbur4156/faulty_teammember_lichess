@@ -6,6 +6,7 @@ The Script detecte the Players of a team which "violated the Lichess Terms of Se
 2. Unzip the archieve
 3. configure the parameter.ini with your data
 4. run the .exe and wait a few moments. The bigger your team, the longer you have to wait
+ - 9.200 members took ~8 minutes
 5. as a result it creates a txt file wiht a list of the detected user
 
 parameter.ini: 
