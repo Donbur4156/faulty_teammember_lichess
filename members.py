@@ -2,11 +2,19 @@ import requests
 import json
 import datetime
 from os import sys
+from configparser import ConfigParser
+import re 
 
-if len(sys.argv) < 1:
-        print("No Teams linked.")
-        sys.exit(0)
-id_team = sys.argv[-1] 
+id_team = "empty"
+
+if len(re.findall("s.py$", sys.argv[-1])) == 0:
+    id_team = sys.argv[-1]
+else: 
+    parser = ConfigParser()
+    parser.read("parameter.ini")
+    configObject = parser["PARAMS"]
+    id_team = configObject["teamID"]  
+
 
 url = "https://lichess.org/api/team/" + id_team + "/users"
 param = dict()
