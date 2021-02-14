@@ -5,15 +5,19 @@ from os import sys
 from configparser import ConfigParser
 import re 
 
-id_team = "empty"
+id_team = ''
 
 if len(re.findall("s.py$", sys.argv[-1])) == 0:
     id_team = sys.argv[-1]
 else: 
     parser = ConfigParser()
     parser.read("parameter.ini")
-    configObject = parser["PARAMS"]
+    configObject = parser["CONFIG"]
     id_team = configObject["teamID"]  
+
+
+if len(id_team) == 0:
+    id_team = input("Team:")
 
 
 url = "https://lichess.org/api/team/" + id_team + "/users"
