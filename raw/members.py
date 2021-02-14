@@ -1,14 +1,12 @@
 import requests
 import json
 import datetime
-from configparser import ConfigParser
+from os import sys
 
-parser = ConfigParser()
-parser.read("parameter.ini")
-
-configObject = parser["PARAMS"]
-id_team = configObject["teamID"]
-team_name = configObject["teamname"]
+if len(sys.argv) < 1:
+        print("No Teams linked.")
+        sys.exit(0)
+id_team = sys.argv[1] 
 
 url = "https://lichess.org/api/team/" + id_team + "/users"
 param = dict()
@@ -26,7 +24,7 @@ for i in data:
 now = datetime.datetime.today()
 date = now.strftime('%d.%m.%Y')
 datei = open('blacklist.txt','a')
-datei.write("\n\nIn the Team " + team_name + ", found at: " + date)
+datei.write("\n\nIn the Team " + id_team + ", found at: " + date)
 for i in fault_users:
     print(i)
     datei.write("\nhttps://lichess.org/@/" + i)
