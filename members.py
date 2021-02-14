@@ -12,8 +12,8 @@ if len(re.findall("s.py$", sys.argv[-1])) == 0:
 else: 
     parser = ConfigParser()
     parser.read("parameter.ini")
-    configObject = parser["CONFIG"]
-    id_team = configObject["teamID"]  
+    configObject = parser["TEAM-CONFIG"]
+    id_team = configObject["TeamID"]  
 
 
 if len(id_team) == 0:
