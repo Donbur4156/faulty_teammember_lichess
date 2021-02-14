@@ -35,4 +35,4 @@ datei = open('blacklist.txt','a')
 datei.write("\n\nIn the Team " + id_team + ", found at: " + date)
 for i in fault_users:
     print(i)
-    datei.write("\nhttps://lichess.org/@/" + i)
+    datei.write("\n" + i)
