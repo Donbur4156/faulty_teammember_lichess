@@ -8,7 +8,9 @@ parser.read("parameter.ini")
 
 configObject = parser["PARAMS"]
 id_team = configObject["teamID"]
-team_name = configObject["teamname"]
+# team_name = configObject["teamname"]
+team_name = id_team
+
 
 url = "https://lichess.org/api/team/" + id_team + "/users"
 param = dict()
