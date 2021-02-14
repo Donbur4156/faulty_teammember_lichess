@@ -3,12 +3,11 @@ import json
 import datetime
 from os import sys
 from configparser import ConfigParser
+import re 
 
 id_team = "empty"
 
-# ToDo: Fix .\
-
-if sys.argv[-1] != "members.py" and len(sys.argv) != 0:
+if len(re.findall("s.py$", sys.argv[-1])) == 0:
     id_team = sys.argv[-1]
 else: 
     parser = ConfigParser()
